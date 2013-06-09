@@ -1,0 +1,37 @@
+CXXFLAGS=-std=c++11 -g
+
+# These valriables are defined in the makefiles that include makefile.common
+#MY_SUBDIRS=
+#MY_BIN=
+#MY_OBJECTS=
+
+all: all-subdirs all-objects all-bin 
+
+rebuild: clean all
+
+clean: 
+	rm -f ${MY_OBJECTS} ${MY_BIN}; export IS_CLEAN=YES; make all-subdirs
+
+all-objects: $(MY_OBJECTS)
+
+all-bin: $(MY_BIN)
+
+all-subdirs:
+	if [ "x${MY_SUBDIRS}" != "x" ] ;  then \
+		for dir in ${MY_SUBDIRS}; do \
+			CURRENT_PWD=${PWD}; \
+			echo "Processing sub-directory: $${dir}"; \
+			if [ "x${IS_CLEAN}" != "x" ]; then \
+				cd $${dir} && make clean; \
+			else \
+				cd "$${dir}" && make; \
+			fi; \
+			if [ $$? -ne 0 ]; then \
+				echo "ERROR: Failed to process make in sub-directory '$${dir}', stopping make at this level"; \
+				cd "$${CURRENT_PWD}"; \
+				exit 1; \
+			fi; \
+			cd "$${CURRENT_PWD}"; \
+			echo "Completed processing sub-directory: $${dir}"; \
+		done; \
+	fi
