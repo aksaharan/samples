@@ -70,47 +70,6 @@ public:
 	/*
 		Return the skyline as a series of points that makeup the skyline
 	*/
-	/*
-	std::list<Point> getSkyline() const {
-		std::list<Point> skyline;
-		if (buildings.empty()) {
-			// Return empty skyline in case there are no buildings
-			return skyline;
-		}
-
-		// Pending points sorted by the x axix
-		std::priority_queue<Point> pendingPoints;
-
-		Point prev = Point{0, 0};
-		skyline.push_back(prev);
-		for (std::set<building>::const_iterator it = buildings.begin();
-				it != buildings.end();
-				++it) {
-			// Pseudo code due to time constraint
-
-			if pendingPoints is empty {
-				// all points for this bulding in a priority queue by x-axis
-			}
-
-			while pendingPoints and top(pendingPoints).x <= it->x {
-				if the height is changing then
-					capture the height and x-axis for that  in the skyline list
-				else
-					ignore the record since it reflects same line as current one
-			}
-		}
-
-		while pendingPoints {
-			if the height is changing then
-				capture the height and x-axis for that  in the skyline list
-			else
-				ignore the record since it reflects same line as current one
-		}
-
-		return skyline;
-	}
-	*/
-
 	std::list<Point> getSkylineByHeights() const {
 		std::list<Point> skyline;
 		if (heightMap.empty()) {
