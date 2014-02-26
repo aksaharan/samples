@@ -10,9 +10,8 @@ int main(void) {
 
 	std::srand(std::time(NULL));
 
-	long MAX_THREADS = 10;
-	std::thread threadList[MAX_THREADS];
-	for (long i = 0; i < MAX_THREADS; ++i) {
+	std::thread threadList[10];
+	for (long i = 0; i < sizeof(threadList); ++i) {
 		std::cout << "Creating Thread [" << i << "]" << std::endl;
 		threadList[i] = std::thread([i] {
 			long sleepTime = std::rand() % 10;
@@ -25,7 +24,7 @@ int main(void) {
 	}
 
 	std::cout << "** Waiting to join on threads" << std::endl;
-	for (long i = 0; i < MAX_THREADS; ++i) {
+	for (long i = 0; i < sizeof(threadList); ++i) {
 		threadList[i].join();
 	}
 
