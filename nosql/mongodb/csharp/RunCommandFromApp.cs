@@ -1,11 +1,14 @@
-using System;
+﻿using System;
 using MongoDB.Driver;
 using MongoDB.Bson;
 
-namespace RunCommandFromApp
+namespace SampleGistApp
 {
-	class MainClass
+	class RunCommandFromApp
 	{
+		public RunCommandFromApp(string[] args) {
+		}
+
 		public static void turnNoTableScanOnOff(bool status) {
 			MongoClient mc = new MongoClient("mongodb://aks-osx-centos:23021/");
 
@@ -24,8 +27,7 @@ namespace RunCommandFromApp
 			}
 		}
 
-		public static void Main (string[] args)
-		{
+		public void myMain () {
 			turnNoTableScanOnOff (true);
 			Console.WriteLine ("Turned notablescan on - test the query now");
 			System.Threading.Thread.Sleep (60000);
