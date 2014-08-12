@@ -155,8 +155,8 @@ public class MongoOps {
 			writeResult = null;
 			findId = "name-" + (long)(Math.random() * i);
 			try {
-				//switch (i % 5) {
-				switch (1) {
+				switch (i % 5) {
+				//switch (1) {
 				case 0: // Do deletes operations
 					op = "delete";
 					obj = coll.findOne(BasicDBObjectBuilder.start("name", findId).get());
