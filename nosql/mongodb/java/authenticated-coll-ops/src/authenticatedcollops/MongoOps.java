@@ -54,7 +54,7 @@ public class MongoOps {
 		_isMongoAuthenticationOn = false;
 
 		_addressList = new ArrayList<ServerAddress>();
-		_addressList.add(new ServerAddress("ec2-54-191-19-1.us-west-2.compute.amazonaws.com", 27017));
+		_addressList.add(new ServerAddress("xxxxx", 27017));
 	}
 	
 	private Map<String, String> createDBCeredentialEntry(String user, String passwd) {
