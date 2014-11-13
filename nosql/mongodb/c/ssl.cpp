@@ -1,7 +1,3 @@
-/* gcc example.c -o example $(pkg-config --cflags --libs libmongoc-1.0) */
-
-/* ./example-client [CONNECTION_STRING [COLLECTION_NAME]] */
-
 #include <sstream>
 #include <iostream>
 #include <string>
