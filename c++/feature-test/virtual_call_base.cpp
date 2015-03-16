@@ -9,6 +9,7 @@ public:
 	virtual void printMe() const = 0;
 
 	void anotherPrint() {
+		// Failed pure virtual function call often encountered in IE 
 		this->printMe();
 	}
 };
