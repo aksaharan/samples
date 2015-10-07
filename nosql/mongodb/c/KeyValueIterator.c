@@ -28,7 +28,7 @@ int main(int argc, const char* argv[]) {
 	const unsigned MAX_KV_LENGTH = 105;
 	char temp_key[KV_ARRAY_LENGTH][MAX_KV_LENGTH + 1], temp_value[KV_ARRAY_LENGTH][MAX_KV_LENGTH + 1];
 	int i = 0;
-	while (mongo_cursor_next(cursor) == MONGO_OK) {   
+	while (mongo_cursor_next(cursor) == MONGO_OK) {
 		count_matched++;
 		doc=(bson *)mongo_cursor_bson(cursor);
 
