@@ -55,7 +55,7 @@ public:
 	}
 };
 
-class F : A, B, E {
+class F : B, virtual A, E, C {
 public:
 	F() {
 		std::cout << "F::F()" << std::endl;

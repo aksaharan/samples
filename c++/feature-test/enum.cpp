@@ -14,9 +14,19 @@ RRS(resp1b_rcvd)RRS(req2_sent)RRS(resp2_rcvd)
 	};
 };
 
+enum Color {
+	None = 0,
+	Blue,
+	Green,
+	Red,
+};
+
 int main(void) {
 	std::cout << "---- Enum Problem ----" << std::endl << std::endl;
 
 	std::cout << "req2_sent: " <<  A::rrs_req2_sent << " -> " << A::rrs_count << std::endl;
+
+	std::cout << "None = " << int(Color::None) << ", Red = " << int(Color::Red) 
+		<< ", Color(10) = " << Color(10) << std::endl;
 	return 0;
 }
